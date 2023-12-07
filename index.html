@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <title>VentilaTech</title>
+</head>
+<body>
+  <div class="container">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpLx3-Z3zC8a0Ek4FbZistVof-VDJZTOF5DXkklj0wV5Tx8v65M9HYOyU2rELMH3dpaw&usqp=CAU" alt="" style="width: 200px;">
+    <h1>VentilaTech</h1>
+    <div class="bombillo" id="bombillo"></div>
+    <button id="btnProgramar" onclick="mostrarProgramacion()">Programar</button>
+  </div>
+
+  <!-- Ventana Modal para Programar -->
+  <div id="ventanaProgramacion" class="modal">
+    <div class="modal-content">
+      <span class="cerrar" onclick="cerrarProgramacion()">&times;</span>
+      <h2>Programar Encendido y Apagado</h2>
+      <form onsubmit="programarBombillo(); return false;">
+        <label for="dia">Día:</label>
+        <input type="text" id="dia" required>
+
+        <label for="horaEncendido">Hora de Encendido:</label>
+        <input type="text" id="horaEncendido" required>
+
+        <label for="horaApagado">Hora de Apagado:</label>
+        <input type="text" id="horaApagado" required>
+
+        <input type="submit" value="Programar">
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      flatpickr("#dia", {
+        enableTime: false,
+        dateFormat: "Y-m-d",
+      });
+
+      flatpickr("#horaEncendido", {
+        enableTime: true,
+        noCalendar: true,
+        dateFormat: "H:i",
+      });
+
+      flatpickr("#horaApagado", {
+        enableTime: true,
+        noCalendar: true,
+        dateFormat: "H:i",
+      });
+    });
+
+    function encender() {
+      document.getElementById('bombillo').style.backgroundColor = '#4CAF50';
+    }
+
+    function apagar() {
+      document.getElementById('bombillo').style.backgroundColor = '#d9534f';
+    }
+
+    function mostrarProgramacion() {
+      document.getElementById("ventanaProgramacion").style.display = "block";
+    }
+
+    function cerrarProgramacion() {
+      document.getElementById("ventanaProgramacion").style.display = "none";
+      limpiarCampos();
+    }
+
+    function programarBombillo() {
+        var dia = document.getElementById("dia").value;
+        var horaEncendido = document.getElementById("horaEncendido").value;
+        var horaApagado = document.getElementById("horaApagado").value;
+      
+        if (dia !== "" && horaEncendido !== "" && horaApagado !== "") {
+          var fechaEncendido = new Date(dia + " " + horaEncendido);
+          var fechaApagado = new Date(dia + " " + horaApagado);
+          var ahora = new Date();
+      
+          if (fechaEncendido > ahora) {
+            var tiempoHastaEncendido = fechaEncendido - ahora;
+      
+            setTimeout(function () {
+              encender();
+              // Establece otro temporizador para apagar el bombillo
+              setTimeout(function () {
+                apagar();
+              }, fechaApagado - fechaEncendido);
+            }, tiempoHastaEncendido);
+          } else {
+            alert('La hora de encendido debe ser en el futuro.');
+          }
+        } else {
+          alert('Por favor, complete todos los campos.');
+        }
+
+      cerrarProgramacion();
+    }
+
+    function limpiarCampos() {
+      document.getElementById("dia").value = "";
+      document.getElementById("horaEncendido").value = "";
+      document.getElementById("horaApagado").value = "";
+    }
+
+    let intervalId; // Variable para almacenar el ID del intervalo
+  </script>
+</body>
+</html>

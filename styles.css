@@ -1,0 +1,160 @@
+ body {
+    height: 500px;
+    background-image: url("https://c.wallhere.com/photos/c0/7d/2005_cows_cairns_hdr_alandot_alandotcomgmailcom-846805.jpg!d");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100rem;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+  .container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .bombillo {
+    width: 30px;
+    height: 30px;
+    background-color: #d9534f; /* color inicial */
+    border-radius: 50%;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  #btnEncender {
+    background-color: #4CAF50;
+    color: #fff;
+  }
+  
+  #btnApagar {
+    background-color: #d9534f;
+    color: #fff;
+  }
+  
+  
+  #btnProgramar {
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
+    padding: 10px 20px; /* Padding for better appearance */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    font-size: 16px; /* Adjust font size */
+    margin-top: 10px; /* Add some top margin for spacing */
+}
+
+
+
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+  
+  .container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .bombillo {
+    width: 30px;
+    height: 30px;
+    background-color: #d9534f; /* color inicial */
+    border-radius: 50%;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  #btnEncender {
+    background-color: #4CAF50;
+    color: #fff;
+  }
+  
+  #btnApagar {
+    background-color: #d9534f;
+    color: #fff;
+  }
+  
+  /* Estilos para la ventana modal */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .cerrar {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .cerrar:hover,
+  .cerrar:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  form {
+    text-align: left;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+  }
+  
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+  .bombillo {
+    width: 100px; /* Ajusta el ancho según tus necesidades */
+    height: 100px; /* Ajusta la altura según tus necesidades */
+    background-color: #9b9b9b; /* Cambia el color según tus necesidades */
+    margin: 0 auto; /* Establece los márgenes automáticos para centrar horizontalmente */
+    text-align: center; /* Alinea el contenido al centro dentro del div */
+    line-height: 100px; /* Ajusta la altura de línea igual a la altura del div para centrar verticalmente */
+}
